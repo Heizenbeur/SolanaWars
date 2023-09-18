@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+<button id="connectWalletButton">Connecter le portefeuille Phantom</button>
+
 <head>
 	<title>Troll Troll</title>
 	<meta charset="UTF-8"/>
@@ -231,6 +234,32 @@
 		})();
 
 		</script>
+		<script>
+		  // Fonction pour connecter le portefeuille Phantom
+		  async function connectPhantomWallet() {
+		    if (window.solana && window.solana.isPhantom) {
+		      try {
+		        // Demande à l'utilisateur de se connecter à Phantom
+		        await window.solana.connect();
+		        
+		        // Le portefeuille est maintenant connecté, vous pouvez effectuer des opérations Solana ici
+		        
+		        // Par exemple, pour obtenir l'adresse du portefeuille connecté :
+		        const connectedWallet = await window.solana.wallet.publicKey;
+		        alert("Portefeuille connecté avec succès. Adresse : " + connectedWallet.toString());
+		      } catch (error) {
+		        console.error("Erreur de connexion au portefeuille Phantom : ", error);
+		      }
+		    } else {
+		      alert("Phantom n'est pas installé. Veuillez installer Phantom pour jouer.");
+		    }
+		  }
+		
+		  // Écouteur de clic pour le bouton de connexion du portefeuille
+		  const connectButton = document.getElementById("connectWalletButton");
+		  connectButton.addEventListener("click", connectPhantomWallet);
+		</script>
+
 	</div>
 </body>
 </html>
