@@ -11,33 +11,33 @@
     	<meta name="theme-color" content="#000000" />
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-	    <style>
-	        /* Style pour la fenêtre du jeu */
-	        #jeuContainer {
-	            width: 800px;
-	            height: 600px;
-	            margin: 20px auto; /* Centrer le conteneur */
-	            background-color: #000000;
-	            overflow: hidden;
-	            position: relative;
-	        }
+	<style>
+	/* Style pour la fenêtre du jeu */
+		#jeuContainer {
+		    width: 800px;
+		    height: 600px;
+		    margin: 20px auto; /* Centrer le conteneur */
+		    background-color: #000000;
+		    overflow: hidden;
+		    position: relative;
+	}
 	
-	        /* Style pour le titre au-dessus de la fenêtre du jeu */
-	        #titreJeu {
-	            font-size: 24px;
-	            color: white;
-	            padding: 10px;
-	            text-align: center;
-	        }
+	/* Style pour le titre au-dessus de la fenêtre du jeu */
+		#titreJeu {
+		    font-size: 24px;
+		    color: white;
+		    padding: 10px;
+		    text-align: center;
+	}
 	
-	        /* Style pour le bouton de connexion au portefeuille */
-	        #connectWalletButton {
-	            position: absolute;
-	            top: 10px;
-	            left: 10px;
-	            z-index: 1; /* Mettre le bouton au-dessus de la fenêtre du jeu */
-	        }
-	    </style>
+	/* Style pour le bouton de connexion au portefeuille */
+		#connectWalletButton {
+		    position: absolute;
+		    top: 10px;
+		    left: 10px;
+		    z-index: 1; /* Mettre le bouton au-dessus de la fenêtre du jeu */
+	}
+	</style>
     <!-- Libs and GDJS core files : -->
 	<script src="libs/jshashtable.js" crossorigin="anonymous"></script>
 	<script src="logger.js" crossorigin="anonymous"></script>
@@ -217,13 +217,17 @@
 </head>
 <body>
     <div id="titreJeu">Solana Wars: Kill the Ghosts</div>
+    
+	<!-- Conteneur du jeu -->
+    <div id="jeuContainer"></div>
+	<canvas id="gameCanvas"></canvas>
+  (/div)
+    
 
     <!-- Bouton de connexion au portefeuille Phantom -->
     <button id="connectWalletButton">Connecter le portefeuille Phantom</button>
     
-    <!-- Conteneur du jeu -->
-    <div id="jeuContainer"></div>
-    
+
     <script>
         (function() {
             //Initialization
