@@ -242,34 +242,33 @@
 					game.startGameLoop();
 				});
 			})();
-	
+
+			 // Fonction pour connecter le portefeuille Phantom
+			  async function connectPhantomWallet() {
+			    if (window.solana && window.solana.isPhantom) {
+			      try {
+			        // Demande à l'utilisateur de se connecter à Phantom
+			        await window.solana.connect();
+			        
+			        // Le portefeuille est maintenant connecté, vous pouvez effectuer des opérations Solana ici
+			        
+			        // Par exemple, pour obtenir l'adresse du portefeuille connecté :
+			        const connectedWallet = await window.solana.wallet.publicKey;
+			        alert("Portefeuille connecté avec succès. Adresse : " + connectedWallet.toString());
+			      } catch (error) {
+			        console.error("Erreur de connexion au portefeuille Phantom : ", error);
+			      }
+			    } else {
+			      alert("Phantom n'est pas installé. Veuillez installer Phantom pour jouer.");
+			    }
+			  }
+			
+			  // Écouteur de clic pour le bouton de connexion du portefeuille
+			  const connectButton = document.getElementById("connectWalletButton");
+			  connectButton.addEventListener("click", connectPhantomWallet);	
+		
 			</script>
 		</div>
 	</div>
-	<script>
-		  // Fonction pour connecter le portefeuille Phantom
-		  async function connectPhantomWallet() {
-		    if (window.solana && window.solana.isPhantom) {
-		      try {
-		        // Demande à l'utilisateur de se connecter à Phantom
-		        await window.solana.connect();
-		        
-		        // Le portefeuille est maintenant connecté, vous pouvez effectuer des opérations Solana ici
-		        
-		        // Par exemple, pour obtenir l'adresse du portefeuille connecté :
-		        const connectedWallet = await window.solana.wallet.publicKey;
-		        alert("Portefeuille connecté avec succès. Adresse : " + connectedWallet.toString());
-		      } catch (error) {
-		        console.error("Erreur de connexion au portefeuille Phantom : ", error);
-		      }
-		    } else {
-		      alert("Phantom n'est pas installé. Veuillez installer Phantom pour jouer.");
-		    }
-		  }
-		
-		  // Écouteur de clic pour le bouton de connexion du portefeuille
-		  const connectButton = document.getElementById("connectWalletButton");
-		  connectButton.addEventListener("click", connectPhantomWallet);
-	</script>
 </body>
 </html>
