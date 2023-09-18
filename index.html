@@ -11,34 +11,34 @@
     	<meta name="theme-color" content="#000000" />
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-	<style>
-	/* Style pour la fenêtre du jeu */
-		#jeuContainer {
-			width: 800px;
-			height: 600px;
-			margin: 0 auto;
-			background-color: #000000;
-			overflow: hidden;
-		}
-
-	/* Style pour le titre au-dessus de la fenêtre du jeu */
-		#titreEtJeuContainer {
-			text-align: center;
-			margin: 20px auto; /* Centrer le conteneur */
-		}
+	 <style>
+	        /* Style pour la fenêtre du jeu */
+	        #jeuContainer {
+	            width: 800px;
+	            height: 600px;
+	            margin: 0 auto;
+	            background-color: #000000;
+	            overflow: hidden;
+	        }
 	
-		#titreJeu {
-			font-size: 24px;
-			color: white;
-			padding: 10px;
-		}
-		#connectWalletButton {
-			position: absolute;
-			top: 0;
-			left: 0;
-			margin: 10px;
-		}
-	</style>
+	        /* Style pour le titre au-dessus de la fenêtre du jeu */
+	        #titreEtJeuContainer {
+	            text-align: center;
+	            margin: 20px auto; /* Centrer le conteneur */
+	        }
+	    
+	        #titreJeu {
+	            font-size: 24px;
+	            color: white;
+	            padding: 10px;
+	        }
+	        #connectWalletButton {
+	            position: absolute;
+	            top: 0;
+	            left: 0;
+	            margin: 10px;
+	        }
+	    </style>
 
     <!-- Libs and GDJS core files : -->
 	<script src="libs/jshashtable.js" crossorigin="anonymous"></script>
@@ -218,57 +218,57 @@
 	<script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
 </head>
 <body>
-
 	<button id="connectWalletButton">Connecter le portefeuille Phantom</button>
-	
+
 	<div id="titreEtJeuContainer">
 		<div id="titreJeu">Solana Wars: Kill the Ghosts</div>
 		<div id="jeuContainer">
-	    
-			<script>
-	
-			(function() {
-				//Initialization
-				var game = new gdjs.RuntimeGame(gdjs.projectData, {});
-	
-				//Create a renderer
-				game.getRenderer().createStandardCanvas(document.body);
-	
-				//Bind keyboards/mouse/touch events
-				game.getRenderer().bindStandardEvents(game.getInputManager(), window, document);
-	
-				//Load all assets and start the game
-				game.loadAllAssets(function() {
-					game.startGameLoop();
-				});
-			})();
-
-			 // Fonction pour connecter le portefeuille Phantom
-			  async function connectPhantomWallet() {
-			    if (window.solana && window.solana.isPhantom) {
-			      try {
-			        // Demande à l'utilisateur de se connecter à Phantom
-			        await window.solana.connect();
-			        
-			        // Le portefeuille est maintenant connecté, vous pouvez effectuer des opérations Solana ici
-			        
-			        // Par exemple, pour obtenir l'adresse du portefeuille connecté :
-			        const connectedWallet = await window.solana.wallet.publicKey;
-			        alert("Portefeuille connecté avec succès. Adresse : " + connectedWallet.toString());
-			      } catch (error) {
-			        console.error("Erreur de connexion au portefeuille Phantom : ", error);
-			      }
-			    } else {
-			      alert("Phantom n'est pas installé. Veuillez installer Phantom pour jouer.");
-			    }
-			  }
-			
-			  // Écouteur de clic pour le bouton de connexion du portefeuille
-			  const connectButton = document.getElementById("connectWalletButton");
-			  connectButton.addEventListener("click", connectPhantomWallet);	
-		
-			</script>
+			<!-- Ajoutez une balise canvas pour le jeu -->
+    			<canvas id="gameCanvas"></canvas>
 		</div>
 	</div>
+    
+<script>
+	(function() {
+		//Initialization
+		var game = new gdjs.RuntimeGame(gdjs.projectData, {});
+	
+		//Create a renderer
+		game.getRenderer().createStandardCanvas(document.body);
+	
+		//Bind keyboards/mouse/touch events
+		game.getRenderer().bindStandardEvents(game.getInputManager(), window, document);
+	
+		//Load all assets and start the game
+		game.loadAllAssets(function() {
+			game.startGameLoop();
+		});
+	})();
+
+	// Fonction pour connecter le portefeuille Phantom
+	async function connectPhantomWallet() {
+		if (window.solana && window.solana.isPhantom) {
+			try {
+			// Demande à l'utilisateur de se connecter à Phantom
+			await window.solana.connect();
+
+			// Le portefeuille est maintenant connecté, vous pouvez effectuer des opérations Solana ici
+		
+			// Par exemple, pour obtenir l'adresse du portefeuille connecté :
+			const connectedWallet = await window.solana.wallet.publicKey;
+			alert("Portefeuille connecté avec succès. Adresse : " + connectedWallet.toString());
+			} catch (error) {
+			console.error("Erreur de connexion au portefeuille Phantom : ", error);
+			}
+		} else {
+		alert("Phantom n'est pas installé. Veuillez installer Phantom pour jouer.");
+		}
+	}
+
+	// Écouteur de clic pour le bouton de connexion du portefeuille
+	const connectButton = document.getElementById("connectWalletButton");
+	connectButton.addEventListener("click", connectPhantomWallet);	
+
+	</script>
 </body>
 </html>
