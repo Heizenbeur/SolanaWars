@@ -11,35 +11,33 @@
     	<meta name="theme-color" content="#000000" />
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-	 <style>
+	    <style>
 	        /* Style pour la fenêtre du jeu */
 	        #jeuContainer {
 	            width: 800px;
 	            height: 600px;
-	            margin: 0 auto;
+	            margin: 20px auto; /* Centrer le conteneur */
 	            background-color: #000000;
 	            overflow: hidden;
+	            position: relative;
 	        }
 	
 	        /* Style pour le titre au-dessus de la fenêtre du jeu */
-	        #titreEtJeuContainer {
-	            text-align: center;
-	            margin: 20px auto; /* Centrer le conteneur */
-	        }
-	    
 	        #titreJeu {
 	            font-size: 24px;
 	            color: white;
 	            padding: 10px;
+	            text-align: center;
 	        }
+	
+	        /* Style pour le bouton de connexion au portefeuille */
 	        #connectWalletButton {
 	            position: absolute;
-	            top: 0;
-	            left: 0;
-	            margin: 10px;
+	            top: 10px;
+	            left: 10px;
+	            z-index: 1; /* Mettre le bouton au-dessus de la fenêtre du jeu */
 	        }
 	    </style>
-
     <!-- Libs and GDJS core files : -->
 	<script src="libs/jshashtable.js" crossorigin="anonymous"></script>
 	<script src="logger.js" crossorigin="anonymous"></script>
@@ -218,32 +216,30 @@
 	<script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
 </head>
 <body>
-	<button id="connectWalletButton">Connecter le portefeuille Phantom</button>
+    <div id="titreJeu">Solana Wars: Kill the Ghosts</div>
 
-	<div id="titreEtJeuContainer">
-		<div id="titreJeu">Solana Wars: Kill the Ghosts</div>
-		<div id="jeuContainer">
-			<!-- Ajoutez une balise canvas pour le jeu -->
-    			<canvas id="gameCanvas"></canvas>
-		</div>
-	</div>
+    <!-- Bouton de connexion au portefeuille Phantom -->
+    <button id="connectWalletButton">Connecter le portefeuille Phantom</button>
     
-<script>
-	(function() {
-		//Initialization
-		var game = new gdjs.RuntimeGame(gdjs.projectData, {});
-	
-		//Create a renderer
-		game.getRenderer().createStandardCanvas(document.body);
-	
-		//Bind keyboards/mouse/touch events
-		game.getRenderer().bindStandardEvents(game.getInputManager(), window, document);
-	
-		//Load all assets and start the game
-		game.loadAllAssets(function() {
-			game.startGameLoop();
-		});
-	})();
+    <!-- Conteneur du jeu -->
+    <div id="jeuContainer"></div>
+    
+    <script>
+        (function() {
+            //Initialization
+            var game = new gdjs.RuntimeGame(gdjs.projectData, {});
+
+            //Create a renderer
+            game.getRenderer().createStandardCanvas(document.getElementById("jeuContainer"));
+
+            //Bind keyboards/mouse/touch events
+            game.getRenderer().bindStandardEvents(game.getInputManager(), window, document);
+
+            //Load all assets and start the game
+            game.loadAllAssets(function() {
+                game.startGameLoop();
+            });
+        })();
 
 	// Fonction pour connecter le portefeuille Phantom
 	async function connectPhantomWallet() {
