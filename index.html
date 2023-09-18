@@ -234,7 +234,8 @@
 		})();
 
 		</script>
-		<script>
+	</div>
+	<script>
 		  // Fonction pour connecter le portefeuille Phantom
 		  async function connectPhantomWallet() {
 		    if (window.solana && window.solana.isPhantom) {
@@ -258,8 +259,6 @@
 		  // Écouteur de clic pour le bouton de connexion du portefeuille
 		  const connectButton = document.getElementById("connectWalletButton");
 		  connectButton.addEventListener("click", connectPhantomWallet);
-		</script>
-
-	</div>
+	</script>
 </body>
 </html>
