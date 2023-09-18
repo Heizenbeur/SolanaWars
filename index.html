@@ -15,26 +15,32 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 	<style>
-	    /* Style pour la fenêtre du jeu */
-	    #jeuContainer {
-	        width: 800px;
-	        height: 600px;
-	        margin: 0 auto;
-	        background-color: #000000;
-	        overflow: hidden;
-	    }
+	/* Style pour la fenêtre du jeu */
+		#jeuContainer {
+			width: 800px;
+			height: 600px;
+			margin: 0 auto;
+			background-color: #000000;
+			overflow: hidden;
+		}
+
+	/* Style pour le titre au-dessus de la fenêtre du jeu */
+		#titreEtJeuContainer {
+			text-align: center;
+			margin: 20px auto; /* Centrer le conteneur */
+		}
 	
-	    /* Style pour le titre au-dessus de la fenêtre du jeu */
-	    #titreEtJeuContainer {
-	        text-align: center;
-	        margin: 20px auto; /* Centrer le conteneur */
-	    }
-	
-	    #titreJeu {
-	        font-size: 24px;
-	        color: white;
-	        padding: 10px;
-	    }
+		#titreJeu {
+			font-size: 24px;
+			color: white;
+			padding: 10px;
+		}
+		#connectWalletButton {
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: 10px;
+		}
 	</style>
 
     <!-- Libs and GDJS core files : -->
