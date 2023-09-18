@@ -1,0 +1,12 @@
+{
+  "name": "Solana Wars",
+  "short_name": "Solana Wars",
+  "id": "com.example.gamename",
+  "description": "Embrace the journey, adventurers, for Solana Wars unveils a captivating odyssey that intertwines art, innovation, and gaming prowess. With every phase, we carve a path towards a universe that blurs the lines between reality and fantasy. Join us in shaping the destiny of Solana Wars, where imagination knows no bounds.",
+  "orientation": "any",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": []
+}
