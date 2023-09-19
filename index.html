@@ -225,7 +225,7 @@
     
 
     <!-- Bouton de connexion au portefeuille Phantom -->
-    <button id="connectWalletButton">Connecter le portefeuille Phantom</button>
+    <button id="connectWalletButton">Connect your Phantom wallet</button>
     
 
     <script>
@@ -256,12 +256,12 @@
 		
 			// Par exemple, pour obtenir l'adresse du portefeuille connecté :
 			const connectedWallet = await window.solana.wallet.publicKey;
-			alert("Portefeuille connecté avec succès. Adresse : " + connectedWallet.toString());
+			alert("Wallet successfully connected. Adress : " + connectedWallet.toString());
 			} catch (error) {
 			console.error("Erreur de connexion au portefeuille Phantom : ", error);
 			}
 		} else {
-		alert("Phantom n'est pas installé. Veuillez installer Phantom pour jouer.");
+		alert("Phantom is not installed. Install Phantom to play.");
 		}
 	}
 
